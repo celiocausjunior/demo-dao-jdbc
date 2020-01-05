@@ -50,11 +50,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 			if (rs.next()) {
 
-				Department obj = new Department();
-
-				obj.setId(rs.getInt("Id"));
-
-				obj.setName(rs.getString("Name"));
+				Department obj = instantiateDepartment(rs);
 
 				return obj;
 
@@ -80,4 +76,10 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		return null;
 	}
 
+	private Department instantiateDepartment(ResultSet rs) throws SQLException {
+		Department dep = new Department();
+		dep.setId(rs.getInt("Id"));
+		dep.setName(rs.getString("Name"));
+		return dep;
+	}
 }
