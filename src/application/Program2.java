@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
+import model.dao.SellerDao;
 import model.dao.impl.DepartmentDaoJDBC;
 import model.entities.Department;
 
@@ -35,6 +36,13 @@ public class Program2 {
 		System.out.println("Inserted!  New id = " + newDepartment.getId());
 		
 	
+		System.out.println("======= TEST 4 : Update Department ========");
+		
+		depto = deptoDao.findById(1);
+		depto.setName("Refrigerators");
+		deptoDao.update(depto);
+		System.out.println("Update Completed!");
+		
 	}
 
 }
